@@ -3,7 +3,7 @@
   <app-sidebar class="sidebar"></app-sidebar>
 </div>
 <div class="job-list-container">
-  <h2 class="section-title">Jobs List</h2>
+  <h2 class="section-title">My Posts</h2>
   <div class="job-cards">
     <div *ngFor="let job of jobs" class="job-card">
       <div class="job-header">
@@ -12,18 +12,18 @@
       </div>
       <div class="job-details">
         <p>Location: {{ job.location }}</p>
-        <p>Number of People: {{ job.peopleNumber }}</p>
-        <p>Hours per Week: {{ job.nbrHours }}</p>
+        <p>Available Places: {{ job.peopleNumber }}</p>
+        <p>Duration: {{ job.nbrHours }}</p>
         <p>Start Date: {{ job.startDate | date: 'medium' }}</p>
-        <p>Salary: ${{ job.salary }}</p>
+        <p>Price: ${{ job.salary }}</p>
         <p>Description: {{ job.description }}</p>
       </div>
       <div class="company-details">
-        <p><strong>Company Name:</strong> {{ job.companyDetails.companyName }}</p>
-        <p><strong>Contact Email:</strong> {{ job.companyDetails.email }}</p>
-        <p><strong>Employee Number:</strong> {{ job.companyDetails.employeeNumber }}</p>
+        <p><strong>Organiser Name:</strong> {{ job.companyDetails.companyName }}</p>
+        <p><strong> Email:</strong> {{ job.companyDetails.email }}</p>
+<!--        <p><strong>Employee Number:</strong> {{ job.companyDetails.employeeNumber }}</p>-->
       </div>
-      <button (click)="deleteJob(job.jobId)">Delete Job</button>
+      <button (click)="deleteJob(job.jobId)">Delete </button>
       <button (click)="viewApplicationsForJob(job.jobId)">View Applications</button>
 
     </div>

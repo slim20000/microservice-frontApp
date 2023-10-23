@@ -3,17 +3,17 @@
   <app-sidebar class="sidebar"></app-sidebar>
 </div>
 <div class="job-list-container">
-  <h2 class="section-title">Jobs List</h2>
+  <h2 class="section-title">program list</h2>
 
   <div class="filter-container">
-    <input type="text" [(ngModel)]="filter" placeholder="Search jobs">
+    <input type="text" [(ngModel)]="filter" placeholder="Search programs">
     <select [(ngModel)]="jobTypeFilter">
-      <option value="">All Job Types</option>
-      <option value="FULL_TIME">Full Time</option>
-      <option value="PART_TIME">Part Time</option>
-      <option value="TEMPORARY">Temporary</option>
-      <option value="INTERNSHIP">Internship</option>
-      <option value="PERMANENT">CDI</option>
+      <option value="">All program Types</option>
+      <option value="FULL_TIME">EXCHANGE</option>
+      <option value="PART_TIME">Colaboration</option>
+      <option value="TEMPORARY">Events</option>
+      <option value="INTERNSHIP">Cultural Events</option>
+      <option value="PERMANENT">Tourism</option>
     </select>
   </div>
 
@@ -21,27 +21,27 @@
     <div *ngFor="let job of jobDetails | filterJobs: filter:jobTypeFilter" class="job-card">
       <div class="job-header">
         <h3>{{ job.jobTitle }}</h3>
-        <p class="job-type">{{ job.jobType }}</p>
+<!--        <p class="job-type">{{ job.jobType }}</p>-->
       </div>
       <div class="job-details">
         <p>Location: {{ job.location }}</p>
         <p>Number of People: {{ job.peopleNumber }}</p>
-        <p>Hours per Week: {{ job.nbrHours }}</p>
+        <p>Duration: {{ job.nbrHours }}</p>
         <p>Start Date: {{ job.startDate | date: 'medium' }}</p>
-        <p>Salary: ${{ job.salary }}</p>
+        <p>Price: ${{ job.salary }}</p>
         <p>Description: {{ job.description }}</p>
         <button (click)="openApplyModal(job)">Apply</button>
 
       </div>
       <div class="company-details">
-        <p><strong>Company Name:</strong> {{ job.companyDetails.companyName }}</p>
+        <p><strong>Posted By:</strong> {{ job.companyDetails.companyName }}</p>
         <p><strong>Contact Email:</strong> {{ job.companyDetails.email }}</p>
-        <p><strong>Employee Number:</strong> {{ job.companyDetails.employeeNumber }}</p>
+        <p><strong>Number:</strong> {{ job.companyDetails.phoneNumber }}</p>
       </div>
     </div>
   </div>
   <div *ngIf="jobDetails.length === 0" class="no-jobs-found">
-    <p>No jobs found.</p>
+    <p>No program  found.</p>
   </div>
 <!--  <div class="modal" [class.show]="isModalOpen">-->
 <!--    <div class="modal-content">-->
@@ -55,12 +55,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Apply for Job</h2>
+          <h2>Apply for the Program</h2>
           <span class="close" (click)="closeApplyModal()">&times;</span>
         </div>
         <div class="modal-body">
           <div class="file-upload">
-            <label for="resume">Upload your resume:</label>
+            <label for="resume">Upload the Files:</label>
             <input type="file" id="resume" (change)="onFileSelected($event)">
           </div>
         </div>

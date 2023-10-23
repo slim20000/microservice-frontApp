@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AppService} from "../login/_services/app.service";
-import {Router} from "@angular/router";
-import Swal from "sweetalert2";
+import {AppService} from '../login/_services/app.service';
+import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
           title: 'Oops...',
           text: 'Email verification failed. Please try again or check the verification code.',
           footer: '<a href="">Why do I have this issue?</a>'
-        })
+        });
         console.error('Email verification failed. Please try again or check the verification code.');
       }
     );
@@ -90,6 +90,6 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  ngOnDestroy() {
-  }
+  // ngOnDestroy() {
+  // }
 }

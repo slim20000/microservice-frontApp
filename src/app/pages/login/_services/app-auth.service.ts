@@ -9,33 +9,35 @@ export class AppAuthService {
   }
 
   public setRole(role: string): void {
-    localStorage.setItem("role", role);
+    localStorage.setItem('role', role);
   }
 
   public getRole(): string {
-    return localStorage.getItem("role") || "";
+    return localStorage.getItem('role') || '';
   }
 
   public setToken(token: string): void {
-    localStorage.setItem("token", token);
+    localStorage.setItem('token', token);
   }
 
   public getToken(): string {
-    return localStorage.getItem("token") || "";
+    return localStorage.getItem('token') || '';
   }
-  public clear(){
+
+  public clear() {
     localStorage.clear();
   }
+
   public isLoggedIn(): boolean {
     return Boolean(this.getRole()) && Boolean(this.getToken());
   }
 
   public setUserId(userId: string): void {
-    localStorage.setItem("userId", userId);
+    localStorage.setItem('userId', userId);
   }
 
   public getUserId(): string {
-    return localStorage.getItem("userId") || "";
+    return localStorage.getItem('userId') || '';
   }
 }
 

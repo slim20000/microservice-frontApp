@@ -65,11 +65,12 @@
             </div>
             <div class="form-group text-center">
               <label class="d-block mb-2"><small>Select Role:</small></label>
-              <button type="button" class="btn btn-outline-primary btn-sm mr-2" [class.active]="userData.role === 'CANDIDATE'" (click)="setRole('CANDIDATE')">CANDIDATE</button>
-              <button type="button" class="btn btn-outline-primary btn-sm" [class.active]="userData.role === 'COMPANY'" (click)="setRole('COMPANY')">COMPANY</button>
+              <button type="button" class="btn btn-outline-primary btn-sm mr-2" [class.active]="userData.role === 'VISITEUR'" (click)="setRole('VISITEUR')">Visiteur</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" [class.active]="userData.role === 'ADHERANT'" (click)="setRole('ADHERANT')">Adhérant</button>
 <!--              <button type="button" class="btn btn-outline-primary btn-sm" [class.active]="userData.role === 'ADMIN'" (click)="setRole('ADMIN')">ADMIN</button>-->
             </div>
-            <div class="form-group" *ngIf="successMessage">
+            <div class="form-group" *ngIf="successMessage"><!--              <button type="button" class="btn btn-outline-primary btn-sm" [class.active]="userData.role === 'ADMIN'" (click)="setRole('ADMIN')">ADMIN</button>-->
+
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-key-25"></i></span>

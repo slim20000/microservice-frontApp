@@ -5,14 +5,14 @@
   <app-dashboard></app-dashboard>
 </div>
 <div *ngIf="applications.length" class="application-list">
-  <h2>Applications for Job ID: {{jobId}}</h2>
+  <h2>Applications for Post id: {{jobId}}</h2>
 
   <div *ngFor="let app of applications" class="application-card">
     <div class="candidate-info">
-      <strong>Candidate:</strong> {{app.userId}}
+      <strong>Application:</strong> {{app.userId}}
     </div>
     <div class="resume-link">
-      <a [href]="getResumeLink(app.resumePath)" target="_blank">Download Resume</a>
+      <a [href]="getResumeLink(app.resumePath)" target="_blank">Download Files</a>
     </div>
     <div class="status-update">
       <label for="status-{{app.applicationId}}">Status:</label>

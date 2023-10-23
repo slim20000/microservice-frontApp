@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
-import {AppAuthService} from "./_services/app-auth.service";
-import {AppService} from "./_services/app.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
+import {AppAuthService} from './_services/app-auth.service';
+import {AppService} from './_services/app.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,9 +21,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
   }
+
   public register() {
     this.router.navigate(['/register']);
   }
+
   login(loginForm: NgForm) {
     this.appService.login(loginForm.value).subscribe(
       (response: any) => {
@@ -40,7 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         const role = response.user.role;
         if (role === 'ADMIN') {
           this.router.navigate(['/admin']);
-        } else if (role === 'CANDIDATE') {
+        } else if (role === 'VISITEUR') {
           this.fetchAndNavigateCandidate(response.user.id);
         } else {
           this.router.navigate(['/company']);
@@ -62,18 +64,20 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     );
   }
+
   fetchAndNavigateCandidate(userId: any): void {
     this.appService.getCandidateByUserId().subscribe(
       (candidateData: any) => {
         this.router.navigate(['/create-candidate']);
       },
       (error) => {
-        console.log("Error fetching candidate data:", error);
+        console.log('Error fetching candidate data:', error);
         this.router.navigate(['/create-candidate']);
 
       }
     );
   }
+
   ngOnDestroy() {
   }
 
